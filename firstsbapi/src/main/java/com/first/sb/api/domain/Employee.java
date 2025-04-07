@@ -34,6 +34,8 @@ public class Employee {
 	private String name;
 	@Column(name="EMP_SAL")
 	private double salary;
+	@Column(name="Emp_Phno")
+	private double phone;
 
 }
 

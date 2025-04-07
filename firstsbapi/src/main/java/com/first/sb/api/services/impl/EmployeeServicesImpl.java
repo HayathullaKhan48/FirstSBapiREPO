@@ -52,7 +52,19 @@ public class EmployeeServicesImpl implements EmployeeServices{
 		}
 		return dbEmployeeDet;
 	}
-	
+	@Override
+	public boolean deleteEmp(int empId) {
+		
+		Optional<Employee> employee= employeeRepository.findById(empId);
+		if (employee.isPresent()) {
+			employeeRepository.deleteById(empId);
+			return true;
+		}
+		else {
+			System.out.println("can't delete the Employee, coz employee Details Already deleted");
+			return false;
+		}
+	}
 	
 	
 	

@@ -20,38 +20,37 @@ public class OrgnizationController {
 	private Employee employeeDetails;
 
 	@PostMapping("/organization")
-	public Organization addOrginzation(@RequestBody Organization organization){
-		
-		
-		Organization org=new Organization();
+	public Organization addOrginzation(@RequestBody Organization organization) {
+
+		Organization org = new Organization();
 		org.setOrgName(organization.getOrgName());
 		org.setHeadQuarters(organization.getHeadQuarters());
 		org.setContactNumber(organization.getContactNumber());
-		Employee employe=organization.getEmployeeDetails();		
+		Employee employe = organization.getEmployeeDetails();
 		org.setEmployeeDetails(employe);
 		return org;
-		
+
 	}
 
-	//http://localhost:8080/first-app/organization/Wipro
+	// http://localhost:8080/first-app/organization/Wipro
 	@GetMapping("/organization/{orgName}")
-	public Organization getOrgDetails(@PathVariable String orgName){
-		Organization org=getDummmyOrgnization();
-		Map<String,Organization> d=new HashMap<>();
+	public Organization getOrgDetails(@PathVariable String orgName) {
+		Organization org = getDummmyOrgnization();
+		Map<String, Organization> d = new HashMap<>();
 		d.put(orgName, org);
 		Organization organization = d.get(orgName);
-		
-		return new Organization(organization.getOrgName(), organization.getHeadQuarters(), organization.getContactNumber(), employeeDetails);
+
+		return new Organization(organization.getOrgName(), organization.getHeadQuarters(),
+				organization.getContactNumber(), employeeDetails);
 	}
 
-	private Organization getDummmyOrgnization() {		
-		Organization org=new Organization();
+	private Organization getDummmyOrgnization() {
+		Organization org = new Organization();
 		org.setOrgName("Wipro");
 		org.setHeadQuarters("EC");
 		org.setContactNumber(12345678L);
 		org.setEmployeeDetails(employeeDetails);
 		return org;
 	}
-	
-	
+
 }
