@@ -35,7 +35,7 @@ public class Employee {
 	@Column(name="EMP_SAL")
 	private double salary;
 	@Column(name="Emp_Phno")
-	private double phone;
+	private long phone;
 
 }
 
